@@ -1,0 +1,58 @@
+{
+  "info": {
+    "name": "Guardrail Gateway API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Post",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": {"raw": "{{baseUrl}}/api/posts", "host": ["{{baseUrl}}"], "path": ["api", "posts"]},
+        "body": {
+          "mode": "raw",
+          "raw": "{
+  "authorId": 1,
+  "authorType": "USER",
+  "content": "Hello from the central gateway"
+}"
+        }
+      }
+    },
+    {
+      "name": "Add Comment",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": {"raw": "{{baseUrl}}/api/posts/1/comments", "host": ["{{baseUrl}}"], "path": ["api", "posts", "1", "comments"]},
+        "body": {
+          "mode": "raw",
+          "raw": "{
+  "authorId": 1,
+  "authorType": "BOT",
+  "parentCommentId": null,
+  "content": "Bot response"
+}"
+        }
+      }
+    },
+    {
+      "name": "Like Post",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": {"raw": "{{baseUrl}}/api/posts/1/like", "host": ["{{baseUrl}}"], "path": ["api", "posts", "1", "like"]},
+        "body": {
+          "mode": "raw",
+          "raw": "{
+  "userId": 2
+}"
+        }
+      }
+    }
+  ],
+  "variable": [
+    {"key": "baseUrl", "value": "http://localhost:8080"}
+  ]
+}

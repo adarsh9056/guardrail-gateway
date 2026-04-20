@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: guardrail-gateway
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5433/guardrail_db}
+    username: ${DB_USERNAME:guardrail}
+    password: ${DB_PASSWORD:guardrail}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6380}
+      repositories:
+        enabled: false
+
+logging:
+  level:
+    org.hibernate.SQL: info
+
+app:
+  scheduler:
+    notif-sweep-ms: 300000
