@@ -170,3 +170,13 @@ Under a burst of, say, 200 simultaneous bot comment requests:
 ---
 
 ## Project Structure
+guardrail-gateway/
+├── src/
+│   └── main/
+│       ├── java/          # Spring Boot application source
+│       └── resources/     # application.yml configuration
+├── postman/
+│   └── guardrail-gateway.postman_collection.json
+├── docker-compose.yml     # Spins up PostgreSQL + Redis locally
+├── pom.xml                # Maven build & dependency config
+└── README.md
